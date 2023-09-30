@@ -19,11 +19,14 @@ class Core
         $url = $this->getUrl();
 
         // Look in controllers for first value
-        if (file_exists("../app/controllers/" . ucwords($url[0]) . ".php")) {
-            // if exiset, set as controller
-            $this->currentController = ucwords($url[0]);
-            // unset 0 Index
-            unset($url[0]);
+        if (isset($url)) {
+
+            if (file_exists("../app/controllers/" . ucwords($url[0]) . ".php")) {
+                // if exiset, set as controller
+                $this->currentController = ucwords($url[0]);
+                // unset 0 Index
+                unset($url[0]);
+            }
         }
 
 
